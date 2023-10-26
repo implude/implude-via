@@ -26,6 +26,7 @@ export const OverflowCell = styled(Cell)`
 `;
 
 export const SpanOverflowCell = styled(Cell)`
+  width: 100%;
   border-top: 1px solid var(--border_color_cell);
   overflow: auto;
   grid-column: span 2;
@@ -111,8 +112,10 @@ export const IndentedControlRow = styled(ControlRow)`
 `;
 
 export const Label = styled.label`
-  color: var(--color_label);
-  font-weight: 400;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
 `;
 
 export const SubLabel = styled(Label)`

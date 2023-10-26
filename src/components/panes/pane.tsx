@@ -7,7 +7,6 @@ export const Pane = styled.div`
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  background: var(--gradient);
 `;
 
 export const CenterPane = styled(Pane)`

@@ -14,23 +14,5 @@ const ExternalLinkContainer = styled.span`
 
 export const ExternalLinks = () => (
   <ExternalLinkContainer>
-    <a href="https://caniusevia.com/" target="_blank">
-      <CategoryIconContainer>
-        <VIALogo height="25px" fill="currentColor" />
-        <CategoryMenuTooltip>Firmware + Docs</CategoryMenuTooltip>
-      </CategoryIconContainer>
-    </a>
-    <a href="https://discord.gg/NStTR5YaPB" target="_blank">
-      <CategoryIconContainer>
-        <FontAwesomeIcon size={'xl'} icon={faDiscord} />
-        <CategoryMenuTooltip>Discord</CategoryMenuTooltip>
-      </CategoryIconContainer>
-    </a>
-    <a href="https://github.com/the-via/app" target="_blank">
-      <CategoryIconContainer>
-        <FontAwesomeIcon size={'xl'} icon={faGithub} />
-        <CategoryMenuTooltip>Github</CategoryMenuTooltip>
-      </CategoryIconContainer>
-    </a>
   </ExternalLinkContainer>
 );

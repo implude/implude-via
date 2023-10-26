@@ -7,6 +7,8 @@
 
 * {
   background-color: aliceblue !important;
+  box-sizing: border-box;
+  word-break: keep-all;
 }
 .logo {
   height: 6em;

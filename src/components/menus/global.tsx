@@ -24,6 +24,7 @@ const {DEBUG_PROD, MODE, DEV} = import.meta.env;
 const showDebugPane = MODE === 'development' || DEBUG_PROD === 'true' || DEV;
 
 const GlobalContainer = styled(Container)`
+  height: 64px;
   background: var(--bg_outside-accent);
   column-gap: 20px;
 `;

@@ -2,9 +2,11 @@
 Explicitly import the missing arrows.
 See https://stackoverflow.com/questions/40822458/styled-unicode-arrows-not-showing-up-with-google-fonts-web-font
  */
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans&text=%E2%86%90|%E2%86%92');
-
+* {
+  font-family: 'SUIT', sans-serif;
+  box-sizing: border-box;
+  word-break: keep-all;
+}
 html,
 body {
   height: 100%;
@@ -16,8 +18,8 @@ body {
 body {
   position: relative;
   color: white;
-  background-color: #232c39;
-  font-family: 'Fira Sans', Helvetica, Helvetica Neue, Arial, serif;
+  background-color: #31333a;
+  font-family: 'SUIT', sans-serif;
   font-weight: 300;
   overflow: hidden;
   margin: 0;
@@ -25,7 +27,7 @@ body {
   user-select: none;
 }
 button {
-  font-family: 'Fira Sans', Helvetica, Helvetica Neue, Arial, serif;
+  font-family: 'SUIT', sans-serif;
   font-weight: 300;
 }
 h2 {
@@ -56,9 +58,9 @@ a:hover {
   --color_light-grey: #d9d9d9;
   --color_medium-grey: #707070;
 
-  --color_dark-grey: #414141;
+  --color_dark-grey: #1c1d21;
   --color_light-jet: #222;
-  --color_jet: #1d1b1b;
+  --color_jet: #31333a;
   --color_warm-white: #fffbfb;
   --color_tinge: #c7c3c3;
   --color_tinge-light: #ebe4e4;
@@ -69,7 +71,7 @@ a:hover {
 
 }
 
-html[data-theme-mode='dark'] {
+html {
   --color_label: var(--color_medium-grey);
   --color_label-highlighted: var(--color_light-grey);
   --color_error: var(--color_error);
@@ -84,29 +86,8 @@ html[data-theme-mode='dark'] {
   --bg_outside-accent: var(--color_dark-grey);
   --bg_control_disabled: var(--color_dark-grey);
   --bg_control-highlighted: var(--color_light-grey);
-  --bg_gradient: linear-gradient(var(--color_jet), var(--color_light-jet));
+  --bg_gradient: #1c1d21; /* linear-gradient(var(--color_jet), var(--color_light-jet)); */
   --bg_control-disabled: transparent;
-}
-html[data-theme-mode='light'] {
-  --color_label: var(--color_medium-grey);
-  --color_label-highlighted: var(--color_light-jet);
-  --color_error: var(--color_error);
-  --border_color_icon: var(--color_medium-grey);
-  --border_color_cell: var(--color_tinge-dark);
-  --bg_icon: var(--color_medium-grey);
-  --bg_icon-highlighted: var(--color_light-jet);
-  --color_icon-highlighted: var(--color_tinge-light);
-  --bg_menu: var(--color_tinge-light);
-  --color_control: var(--color_tinge-light);
-  --color_control-disabled: var(--color_tinge-light);
-  --bg_control: var(--color_tinge);
-  --bg_outside-accent: var(--color_tinge-light);
-  --bg_control-highlighted: var(--color_warm-white);
-  --bg_control-disabled: transparent;
-  --bg_gradient: linear-gradient(
-    var(--color_tinge-light),
-    var(--color_warm-white)
-  );
 }
 
 #root {

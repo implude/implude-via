@@ -42,6 +42,8 @@ import {useAppDispatch} from 'src/store/hooks';
 import {MenuTooltip} from '../inputs/tooltip';
 import {getRenderMode, getSelectedTheme} from 'src/store/settingsSlice';
 
+import logoSrc from '../../assets/images/MK1.png';
+
 const MenuContainer = styled.div`
   padding: 15px 10px 20px 10px;
 `;
@@ -141,6 +143,27 @@ const getRowsForKeyboardV2 = (
   );
 };
 
+const RegisterButton = styled(AccentButtonLarge)`
+  display: flex;
+  padding: 12px 24px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 28px;
+  background: var(--gray-400, #3C3E46);
+  color: var(--gray-0, #FFF);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 140%; /* 28px */
+  letter-spacing: -0.2px;
+  border: none;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    border: none;
+    background: #656875;
+  }
+`
+
 const Loader: React.FC<{
   loadProgress: number;
   selectedDefinition: VIADefinitionV2 | VIADefinitionV3 | null;
@@ -166,12 +189,12 @@ const Loader: React.FC<{
   }, [selectedDefinition]);
   return (
     <LoaderPane>
-      {<ChippyLoader theme={theme} progress={loadProgress || null} />}
+      <img width="450px" src={logoSrc} />
       {(showButton || noConnectedDevices) && !noSupportedIds && !isElectron ? (
-        <AccentButtonLarge onClick={() => dispatch(reloadConnectedDevices())}>
-          Authorize device
+        <RegisterButton onClick={() => dispatch(reloadConnectedDevices())}>
+          키보드 등록하기
           <FontAwesomeIcon style={{marginLeft: '10px'}} icon={faPlus} />
-        </AccentButtonLarge>
+        </RegisterButton>
       ) : (
         <LoadingText isSearching={!selectedDefinition} />
       )}

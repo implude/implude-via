@@ -38,10 +38,14 @@ import {AccentRange} from '../inputs/accent-range';
 import {TestKeyboardSoundsMode} from '../void/test-keyboard-sounds';
 
 const Container = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 0 12px;
+  padding-top: 36px;
+  overflow-y: scroll;
 `;
 
 const TestPane = styled(Pane)`
@@ -124,8 +128,8 @@ export const Test: FC = () => {
 
   return progress !== 100 ? null : (
     <TestPane>
-      <Grid>
-        <MenuCell style={{pointerEvents: 'all'}}>
+      {/* <Grid> */}
+      {/* <MenuCell style={{pointerEvents: 'all'}}>
           <MenuContainer>
             <Row $selected={true}>
               <IconContainer>
@@ -134,119 +138,119 @@ export const Test: FC = () => {
               </IconContainer>
             </Row>
           </MenuContainer>
-        </MenuCell>
-        <SpanOverflowCell>
-          <Container>
+        </MenuCell> */}
+      <SpanOverflowCell>
+        <Container>
+          <ControlRow>
+            <Label>키보드 재설정</Label>
+            <Detail>
+              <AccentButton onClick={testContextObj.clearTestKeys}>
+                재설정
+              </AccentButton>
+            </Detail>
+          </ControlRow>
+          {canUseMatrixState && selectedDefinition ? (
             <ControlRow>
-              <Label>Reset Keyboard</Label>
-              <Detail>
-                <AccentButton onClick={testContextObj.clearTestKeys}>
-                  Reset
-                </AccentButton>
-              </Detail>
-            </ControlRow>
-            {canUseMatrixState && selectedDefinition ? (
-              <ControlRow>
-                <Label>Test Matrix</Label>
-                <Detail>
-                  <AccentSlider
-                    isChecked={isTestMatrixEnabled}
-                    onChange={(val) => {
-                      dispatch(setTestMatrixEnabled(val));
-                      testContextObj.clearTestKeys();
-                    }}
-                  />
-                </Detail>
-              </ControlRow>
-            ) : null}
-            <ControlRow>
-              <Label>Key Sounds</Label>
+              <Label>매트릭스 테스트</Label>
               <Detail>
                 <AccentSlider
-                  isChecked={testKeyboardSoundsSettings.isEnabled}
+                  isChecked={isTestMatrixEnabled}
                   onChange={(val) => {
+                    dispatch(setTestMatrixEnabled(val));
+                    testContextObj.clearTestKeys();
+                  }}
+                />
+              </Detail>
+            </ControlRow>
+          ) : null}
+          <ControlRow>
+            <Label>키 사운드</Label>
+            <Detail>
+              <AccentSlider
+                isChecked={testKeyboardSoundsSettings.isEnabled}
+                onChange={(val) => {
+                  dispatch(
+                    setTestKeyboardSoundsSettings({
+                      isEnabled: val,
+                    }),
+                  );
+                }}
+              />
+            </Detail>
+          </ControlRow>
+          <ControlRow>
+            <Label>볼륨</Label>
+            <Detail>
+              <AccentRange
+                max={100}
+                min={0}
+                defaultValue={testKeyboardSoundsSettings.volume}
+                onChange={(value: number) => {
+                  dispatch(
+                    setTestKeyboardSoundsSettings({
+                      volume: value,
+                    }),
+                  );
+                }}
+              />
+            </Detail>
+          </ControlRow>
+          <ControlRow>
+            <Label>사운드 높낮이</Label>
+            <Detail>
+              <AccentRange
+                max={24}
+                min={-24}
+                defaultValue={testKeyboardSoundsSettings.transpose}
+                onChange={(value: number) => {
+                  dispatch(
+                    setTestKeyboardSoundsSettings({
+                      transpose: value,
+                    }),
+                  );
+                }}
+              />
+            </Detail>
+          </ControlRow>
+          <ControlRow>
+            <Label>사운드 파형</Label>
+            <Detail>
+              <AccentSelect
+                isSearchable={false}
+                defaultValue={waveformDefaultValue}
+                options={waveformOptions}
+                onChange={(option: any) => {
+                  option &&
                     dispatch(
                       setTestKeyboardSoundsSettings({
-                        isEnabled: val,
+                        waveform: option.value,
                       }),
                     );
-                  }}
-                />
-              </Detail>
-            </ControlRow>
-            <ControlRow>
-              <Label>Volume</Label>
-              <Detail>
-                <AccentRange
-                  max={100}
-                  min={0}
-                  defaultValue={testKeyboardSoundsSettings.volume}
-                  onChange={(value: number) => {
+                }}
+              />
+            </Detail>
+          </ControlRow>
+          <ControlRow>
+            <Label>LED 모드</Label>
+            <Detail>
+              <AccentSelect
+                isSearchable={false}
+                defaultValue={modeDefaultValue}
+                options={modeOptions}
+                onChange={(option: any) => {
+                  option &&
                     dispatch(
                       setTestKeyboardSoundsSettings({
-                        volume: value,
+                        mode: option.value,
                       }),
                     );
-                  }}
-                />
-              </Detail>
-            </ControlRow>
-            <ControlRow>
-              <Label>Transpose</Label>
-              <Detail>
-                <AccentRange
-                  max={24}
-                  min={-24}
-                  defaultValue={testKeyboardSoundsSettings.transpose}
-                  onChange={(value: number) => {
-                    dispatch(
-                      setTestKeyboardSoundsSettings({
-                        transpose: value,
-                      }),
-                    );
-                  }}
-                />
-              </Detail>
-            </ControlRow>
-            <ControlRow>
-              <Label>Waveform</Label>
-              <Detail>
-                <AccentSelect
-                  isSearchable={false}
-                  defaultValue={waveformDefaultValue}
-                  options={waveformOptions}
-                  onChange={(option: any) => {
-                    option &&
-                      dispatch(
-                        setTestKeyboardSoundsSettings({
-                          waveform: option.value,
-                        }),
-                      );
-                  }}
-                />
-              </Detail>
-            </ControlRow>
-            <ControlRow>
-              <Label>Mode</Label>
-              <Detail>
-                <AccentSelect
-                  isSearchable={false}
-                  defaultValue={modeDefaultValue}
-                  options={modeOptions}
-                  onChange={(option: any) => {
-                    option &&
-                      dispatch(
-                        setTestKeyboardSoundsSettings({
-                          mode: option.value,
-                        }),
-                      );
-                  }}
-                />
-              </Detail>
-            </ControlRow>
-          </Container>
-        </SpanOverflowCell>
-      </Grid>
+                }}
+              />
+            </Detail>
+          </ControlRow>
+        </Container>
+      </SpanOverflowCell>
+      {/* </Grid> */}
     </TestPane>
   );
 };
