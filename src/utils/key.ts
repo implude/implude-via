@@ -390,7 +390,7 @@ function buildLayerMenu(): IKeycodeMenu {
 
   const menu: IKeycodeMenu = {
     id: 'layers',
-    label: 'Layers',
+    label: '레이어',
     width: 'label',
     keycodes: [
       {
@@ -468,10 +468,10 @@ export function getKeycodes(): IKeycodeMenu[] {
   return [
     {
       id: 'basic',
-      label: 'Basic',
+      label: '기본 키',
       keycodes: [
-        {name: '', code: 'KC_NO', title: 'Nothing'},
-        {name: '▽', code: 'KC_TRNS', title: 'Pass-through'},
+        {name: '', code: 'KC_NO', title: '지정 안함'},
+        {name: '▽', code: 'KC_TRNS', title: '패스스루'},
         // TODO: remove "shortName" when multiline keycap labels are working
         {name: 'Esc', code: 'KC_ESC', keys: 'esc'},
         {name: 'A', code: 'KC_A', keys: 'a'},
@@ -623,7 +623,7 @@ export function getKeycodes(): IKeycodeMenu[] {
     },
     {
       id: 'wt_lighting',
-      label: 'Lighting',
+      label: 'LED',
       width: 'label',
       keycodes: [
         {
@@ -714,25 +714,25 @@ export function getKeycodes(): IKeycodeMenu[] {
     },
     {
       id: 'media',
-      label: 'Media',
+      label: '미디어',
       width: 'label',
       keycodes: [
-        {name: 'Vol -', code: 'KC_VOLD', title: 'Volume Down'},
-        {name: 'Vol +', code: 'KC_VOLU', title: 'Volume Up'},
-        {name: 'Mute', code: 'KC_MUTE', title: 'Mute Audio'},
-        {name: 'Play', code: 'KC_MPLY', title: 'Play/Pause'},
-        {name: 'Media Stop', code: 'KC_MSTP', title: 'Media Stop'},
-        {name: 'Previous', code: 'KC_MPRV', title: 'Media Previous'},
-        {name: 'Next', code: 'KC_MNXT', title: 'Media Next'},
-        {name: 'Rewind', code: 'KC_MRWD', title: 'Rewind'},
-        {name: 'Fast Forward', code: 'KC_MFFD', title: 'Fast Forward'},
-        {name: 'Select', code: 'KC_MSEL', title: 'Media Select'},
-        {name: 'Eject', code: 'KC_EJCT', title: 'Media Eject'},
+        {name: 'Vol -', code: 'KC_VOLD', title: '볼륨 감소'},
+        {name: 'Vol +', code: 'KC_VOLU', title: '볼륨 증가'},
+        {name: 'Mute', code: 'KC_MUTE', title: '오디오 정지'},
+        {name: 'Play', code: 'KC_MPLY', title: '플레이/일시정지'},
+        {name: 'Media Stop', code: 'KC_MSTP', title: '미디어 정지'},
+        {name: 'Previous', code: 'KC_MPRV', title: '이전 미디어'},
+        {name: 'Next', code: 'KC_MNXT', title: '다음 미디어'},
+        {name: 'Rewind', code: 'KC_MRWD', title: '되감기'},
+        {name: 'Fast Forward', code: 'KC_MFFD', title: '빨리감기'},
+        {name: 'Select', code: 'KC_MSEL', title: '미디어 선택'},
+        {name: 'Eject', code: 'KC_EJCT', title: '미디어 추출'},
       ],
     },
     {
       id: 'macro',
-      label: 'Macro',
+      label: '매크로',
       width: 'label',
       keycodes: [
         {name: 'M0', code: 'MACRO(0)', title: 'Macro 0'},
@@ -756,7 +756,7 @@ export function getKeycodes(): IKeycodeMenu[] {
     buildLayerMenu(),
     {
       id: 'special',
-      label: 'Special',
+      label: '특수 키',
       width: 'label',
       keycodes: [
         {name: '~', code: 'S(KC_GRV)', keys: '`', title: 'Shift + `'},
@@ -784,58 +784,20 @@ export function getKeycodes(): IKeycodeMenu[] {
         {name: 'NUBS', code: 'KC_NUBS', title: 'Non-US \\ and |'},
         {name: 'Ro', code: 'KC_RO', title: 'JIS \\ and |'},
         {name: '¥', code: 'KC_JYEN', title: 'JPN Yen'},
-        {name: '無変換', code: 'KC_MHEN', title: 'JIS Muhenkan'},
-        {name: '漢字', code: 'KC_HANJ', title: 'Hanja'},
+        {name: '한자', code: 'KC_HANJ', title: 'Hanja'},
         {name: '한영', code: 'KC_HAEN', title: 'HanYeong'},
-        {name: '変換', code: 'KC_HENK', title: 'JIS Henkan'},
-        {name: 'かな', code: 'KC_KANA', title: 'JIS Katakana/Hiragana'},
-        {
-          name: 'Esc `',
-          code: 'KC_GESC',
-          title: 'Esc normally, but ` when Shift or Win is pressed',
-        },
-        {
-          name: 'LS (',
-          code: 'KC_LSPO',
-          title: 'Left Shift when held, ( when tapped',
-        },
-        {
-          name: 'RS )',
-          code: 'KC_RSPC',
-          title: 'Right Shift when held, ) when tapped',
-        },
-        {
-          name: 'LC (',
-          code: 'KC_LCPO',
-          title: 'Left Control when held, ( when tapped',
-        },
-        {
-          name: 'RC )',
-          code: 'KC_RCPC',
-          title: 'Right Control when held, ) when tapped',
-        },
-        {
-          name: 'LA (',
-          code: 'KC_LAPO',
-          title: 'Left Alt when held, ( when tapped',
-        },
-        {
-          name: 'RA )',
-          code: 'KC_RAPC',
-          title: 'Right Alt when held, ) when tapped',
-        },
         {
           name: 'SftEnt',
           code: 'KC_SFTENT',
           title: 'Right Shift when held, Enter when tapped',
         },
         {name: 'Reset', code: 'RESET', title: 'Reset the keyboard'},
-        {name: 'Debug', code: 'DEBUG', title: 'Toggle debug mode'},
+        // {name: 'Debug', code: 'DEBUG', title: 'Toggle debug mode'},
         {
           name: 'Toggle NKRO',
           code: 'MAGIC_TOGGLE_NKRO',
           shortName: 'NKRO',
-          title: 'Toggle NKRO',
+          title: 'N-Key 롤오버 토글',
         },
         // I don't even think the locking stuff is enabled...
         {name: 'Locking Num Lock', code: 'KC_LNUM'},
@@ -932,7 +894,7 @@ export function getKeycodes(): IKeycodeMenu[] {
     /* These are for controlling the original backlighting and bottom RGB. */
     {
       id: 'qmk_lighting',
-      label: 'Lighting',
+      label: '밝기',
       width: 'label',
       keycodes: [
         {name: 'BL Toggle', code: 'BL_TOGG'},
@@ -969,7 +931,7 @@ export function getKeycodes(): IKeycodeMenu[] {
     */
     {
       id: 'custom',
-      label: 'Custom',
+      label: '커스텀',
       width: 'label',
       keycodes: [
         {name: 'CUSTOM(0)', code: 'CUSTOM(0)', title: 'Custom Keycode 0'},

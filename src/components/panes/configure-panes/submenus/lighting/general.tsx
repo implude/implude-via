@@ -24,12 +24,12 @@ const BacklightControls: [
 ][] = [
   [
     LightingValue.BACKLIGHT_BRIGHTNESS,
-    'Brightness',
+    '밝기',
     {type: 'range', min: 0, max: 255},
   ],
   [
     LightingValue.BACKLIGHT_EFFECT,
-    'Effect',
+    '효과',
     {
       type: 'select',
       getOptions: (definition: VIADefinitionV2 | VIADefinitionV3) =>
@@ -41,7 +41,7 @@ const BacklightControls: [
   ],
   [
     LightingValue.BACKLIGHT_EFFECT_SPEED,
-    'Effect Speed',
+    '효과 속도',
     {type: 'range', min: 0, max: 3},
   ],
 ];
