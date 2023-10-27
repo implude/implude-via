@@ -117,7 +117,7 @@ export const Pane: FC = () => {
       <Encoder>
         <Container>
           <ControlRow>
-            <Label>Rotate Counterclockwise</Label>
+            <Label>반시계 방향 회전</Label>
             <Detail>
               <PelpiKeycodeInput
                 value={ccwValue}
@@ -127,7 +127,7 @@ export const Pane: FC = () => {
             </Detail>
           </ControlRow>
           <ControlRow>
-            <Label>Rotate Clockwise</Label>
+            <Label>시계방향 회전</Label>
             <Detail>
               <PelpiKeycodeInput
                 value={cwValue}
@@ -138,7 +138,7 @@ export const Pane: FC = () => {
           </ControlRow>
           {canClick && (
             <ControlRow>
-              <Label>Press Encoder</Label>
+              <Label>인코더 누르기</Label>
               <Detail>
                 <PelpiKeycodeInput
                   value={val}
