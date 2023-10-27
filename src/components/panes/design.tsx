@@ -59,6 +59,7 @@ import {
   getDesignDefinitionVersion,
   updateDesignDefinitionVersion,
 } from 'src/store/settingsSlice';
+import { initmk1 } from 'src/utils/set-mk1-json';
 
 let designWarningSeen = Number(localStorage.getItem('designWarningSeen') || 0);
 let hideDesignWarning =
@@ -192,6 +193,7 @@ function importDefinitions(
     } else {
       dispatch(loadCustomDefinitions({definitions, version}));
       dispatch(storeCustomDefinitions({definitions, version}));
+      dispatch(initmk1());
       dispatch(
         ensureSupportedIds({
           productIds: definitions.map((d) => d.vendorProductId),

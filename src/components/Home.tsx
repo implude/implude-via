@@ -30,6 +30,7 @@ import {
 } from 'src/store/definitionsSlice';
 import {OVERRIDE_HID_CHECK} from 'src/utils/override';
 import {KeyboardValue} from 'src/utils/keyboard-api';
+import { initmk1 } from 'src/utils/set-mk1-json';
 
 const ErrorHome = styled.div`
   background: var(--bg_gradient);
@@ -168,6 +169,16 @@ export const Home: React.FC<HomeProps> = (props) => {
     //   toggleLights();
     // }
   }, [api]);
+
+  useEffect(() => {
+    initmk1();
+    const result = window.indexedDB.open('keyval-store');
+
+    result.onsuccess = (event) => {
+      console.log('db indexed')
+      console.log((event.target as any).result);
+    }
+  }, []);
 
   return !hasHIDSupport && !OVERRIDE_HID_CHECK ? (
     <ErrorHome ref={homeElem} tabIndex={0}>

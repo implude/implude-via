@@ -11,6 +11,7 @@ import {updateCSSVariables} from './utils/color-math';
 import {THEMES} from './utils/themes';
 import * as Sentry from '@sentry/react';
 import {BrowserTracing} from '@sentry/tracing';
+import { initmk1 } from './utils/set-mk1-json';
 
 const {MODE} = import.meta.env;
 
