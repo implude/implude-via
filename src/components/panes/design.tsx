@@ -306,7 +306,7 @@ export const DesignTab: FC = () => {
         <SpanOverflowCell>
           <Container>
             <ControlRow>
-              <Label>Load Draft Definition</Label>
+              <Label>레이아웃 불러오기</Label>
               <Detail>
                 <AccentUploadButton
                   multiple
@@ -324,21 +324,10 @@ export const DesignTab: FC = () => {
                 </AccentUploadButton>
               </Detail>
             </ControlRow>
-            <ControlRow>
-              <Label>Use V2 definitions (deprecated)</Label>
-              <Detail>
-                <AccentSlider
-                  isChecked={definitionVersion === 'v2'}
-                  onChange={(val) =>
-                    dispatch(updateDesignDefinitionVersion(val ? 'v2' : 'v3'))
-                  }
-                />
-              </Detail>
-            </ControlRow>
             {definition && (
               <>
                 <ControlRow>
-                  <Label>Shown Keyboard Definition</Label>
+                  <Label>키보드 레이아웃 보기</Label>
                   <Detail>
                     <AccentSelect
                       onChange={(option: any) => {
@@ -367,28 +356,15 @@ export const DesignTab: FC = () => {
                 }}
               />
             )}
-            {definition && (
-              <ControlRow>
-                <Label>Show Matrix</Label>
-                <Detail>
-                  <AccentSlider
-                    isChecked={showMatrix}
-                    onChange={(val) => {
-                      dispatch(updateShowMatrix(val));
-                    }}
-                  />
-                </Detail>
-              </ControlRow>
-            )}
             {errors.map((error: string) => (
               <IndentedControlRow>
                 <DesignErrorMessage>{error}</DesignErrorMessage>
               </IndentedControlRow>
             ))}
             <ControlRow>
-              <Label>Draft Definitions</Label>
+              <Label>등록된 레이아웃</Label>
               <Detail>
-                {Object.values(versionDefinitions).length} Definitions
+                {Object.values(versionDefinitions).length} 개
               </Detail>
             </ControlRow>
             {versionDefinitions.map((definition) => {

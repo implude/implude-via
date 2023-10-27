@@ -173,17 +173,16 @@ export const Home: React.FC<HomeProps> = (props) => {
     <ErrorHome ref={homeElem} tabIndex={0}>
       <UsbError>
         <UsbErrorIcon>❌</UsbErrorIcon>
-        <UsbErrorHeading>USB Detection Error</UsbErrorHeading>
+        <UsbErrorHeading>USB 감지 오류</UsbErrorHeading>
         <p>
-          Looks like there was a problem getting USB detection working. Right
-          now, we only support{' '}
+          USB 감지에 오류가 발생했습니다. IMPLUDE VIA는{' '}
           <UsbErrorWebHIDLink
             href="https://caniuse.com/?search=webhid"
             target="_blank"
           >
-            browsers that have WebHID enabled
+            WebHID를 지원하는 브라우저
           </UsbErrorWebHIDLink>
-          , so make sure yours is compatible before trying again.
+          에서 사용할 수 있습니다.
         </p>
       </UsbError>
     </ErrorHome>

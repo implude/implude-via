@@ -103,7 +103,7 @@ export const Settings = () => {
         <SpanOverflowCell style={{flex: 1, borderWidth: 0}}>
           <Container>
             <ControlRow>
-              <Label>Show Design tab</Label>
+              <Label>디자인 탭 보기</Label>
               <Detail>
                 <AccentSlider
                   onChange={() => dispatch(toggleCreatorMode())}
@@ -112,7 +112,7 @@ export const Settings = () => {
               </Detail>
             </ControlRow>
             <ControlRow>
-              <Label>Fast Key Mapping</Label>
+              <Label>빠른 키 매핑</Label>
               <Detail>
                 <AccentSlider
                   onChange={() => dispatch(toggleFastRemap())}
@@ -120,7 +120,7 @@ export const Settings = () => {
                 />
               </Detail>
             </ControlRow>
-            <ControlRow>
+            {/* <ControlRow>
               <Label>Light Mode</Label>
               <Detail>
                 <AccentSlider
@@ -128,8 +128,8 @@ export const Settings = () => {
                   isChecked={themeMode === 'light'}
                 />
               </Detail>
-            </ControlRow>
-            <ControlRow>
+            </ControlRow> */}
+            {/* <ControlRow>
               <Label>Keycap Theme</Label>
               <Detail>
                 <AccentSelect
@@ -140,8 +140,8 @@ export const Settings = () => {
                   }}
                 />
               </Detail>
-            </ControlRow>
-            <ControlRow>
+            </ControlRow> */}
+            {/* <ControlRow>
               <Label>Render Mode</Label>
               <Detail>
                 <AccentSelect
@@ -152,9 +152,9 @@ export const Settings = () => {
                   }}
                 />
               </Detail>
-            </ControlRow>
+            </ControlRow> */}
             <ControlRow>
-              <Label>Show Diagnostic Information</Label>
+              <Label> 하드웨어 / 소프트웨어 정보 표시</Label>
 
               <Detail>
                 {selectedDevice ? (
@@ -164,7 +164,7 @@ export const Settings = () => {
                   />
                 ) : (
                   <SettingsErrorMessage>
-                    Requires connected device
+                    키보드를 연결해야 합니다
                   </SettingsErrorMessage>
                 )}
               </Detail>
@@ -173,7 +173,7 @@ export const Settings = () => {
           {showDiagnostics && selectedDevice ? (
             <DiagnosticContainer>
               <ControlRow>
-                <Label>VIA Firmware Protocol</Label>
+                <Label>VIA 펌웨어 프로토콜</Label>
                 <Detail>{selectedDevice.protocol}</Detail>
               </ControlRow>
             </DiagnosticContainer>
