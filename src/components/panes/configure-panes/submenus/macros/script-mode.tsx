@@ -142,7 +142,7 @@ export const ScriptMode: React.FC<{
           minChar={0}
           textAreaComponent={TextArea as any}
           movePopupAsYouType={true}
-          placeholder={`Enter the macro you want M${macroIndex} to execute...`}
+          placeholder={`"M${macroIndex}"에서 실행할 매크로를 입력하세요...`}
           trigger={{
             '?': {
               dataProvider: findKeycodes,
@@ -177,22 +177,22 @@ export const ScriptMode: React.FC<{
         <DescriptionLabel>
           <ToastErrorMessage>{errorMessage}</ToastErrorMessage>
           <Message>
-            Enter text directly, or wrap{' '}
+            텍스트를 직접 입력하거나, {'{}'} 안에{' '}
             <Link href="https://docs.qmk.fm/#/keycodes_basic" target="_blank">
-              Basic Keycodes
-            </Link>{' '}
-            in {'{}'}
+              일반 키코드
+            </Link>
+            를 입력하세요
           </Message>
-          <Message>Single tap: {'{KC_XXX}'}</Message>
-          <Message>Chord: {'{KC_XXX, KC_YYY, KC_ZZZ}'}</Message>
-          <Message>Keydown: {`{+KC_XXX}`}</Message>
-          <Message>Keyup: {`{-KC_XXX}`}</Message>
+          <Message>눌럿다 떼기: {'{KC_XXX}'}</Message>
+          <Message>키 조합: {'{KC_XXX, KC_YYY, KC_ZZZ}'}</Message>
+          <Message>키 누르기: {`{+KC_XXX}`}</Message>
+          <Message>키 떼기: {`{-KC_XXX}`}</Message>
           {isDelaySupported ? (
-            <Message>Delay (ms): {'{NNNN}'} </Message>
+            <Message>지연시간 (ms): {'{NNNN}'} </Message>
           ) : (
             'Upgrade firmware to use delays'
           )}
-          <Message>Type ? to search for keycodes</Message>
+          <Message>"?"를 입력해 키코드를 검색하세요</Message>
         </DescriptionLabel>
         <Detail>
           <AccentButton disabled={macro === currentValue} onClick={saveMacro}>

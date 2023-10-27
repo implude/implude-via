@@ -247,13 +247,13 @@ export const Pane: FC = () => {
       <SaveLoadPane>
         <Container>
           <ControlRow>
-            <Label>Save Current Layout</Label>
+            <Label>현재 레이아웃 저장</Label>
             <Detail>
               <AccentButton onClick={saveLayout}>Save</AccentButton>
             </Detail>
           </ControlRow>
           <ControlRow>
-            <Label>Load Saved Layout</Label>
+            <Label>저장된 레이아웃 불러오기</Label>
             <Detail>
               <AccentUploadButton onLoad={loadLayout}>Load</AccentUploadButton>
             </Detail>

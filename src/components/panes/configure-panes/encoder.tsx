@@ -17,7 +17,8 @@ import {
   getSelectedKeyboardAPI,
 } from 'src/store/devicesSlice';
 import {KeyboardAPI} from 'src/utils/keyboard-api';
-import {ErrorMessage} from 'src/components/styled';
+import {ErrorMessage, Message} from 'src/components/styled';
+import { Link } from 'wouter';
 
 const Encoder = styled(CenterPane)`
   height: 100%;
@@ -148,6 +149,12 @@ export const Pane: FC = () => {
               </Detail>
             </ControlRow>
           )}
+          <Message>
+            <Link href="https://docs.qmk.fm/#/keycodes_basic" target="_blank">
+              "일반 키코드"
+            </Link>
+            를 입력하세요
+          </Message>
         </Container>
       </Encoder>
     </SpanOverflowCell>
